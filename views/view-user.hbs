@@ -1,0 +1,48 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">View user</li>
+    </ol>
+</nav>
+
+<form class="row g-3 needs-validation" novalidate>
+{{#each result}}
+<div class="col-6">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="First Name" name="first_name"
+            value="{{this.first_name}}" readonly>
+        <label for="floatingInput">First Name</label>
+    </div>
+</div>
+<div class="col-6">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Last Name" name="last_name"
+            value="{{this.last_name}}" readonly>
+        <label for="floatingInput">Last Name</label>
+    </div>
+</div>
+<div class="col-6">
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="email@email.com" name="email"
+            value="{{this.email}}" readonly>
+        <label for="floatingInput">Email</label>
+    </div>
+</div>
+<div class="col-6">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Phone" name="phone"
+            value="{{this.phone}}" readonly>
+        <label for="floatingInput">Phone</label>
+    </div>
+</div>
+<div class="col-12">
+    <div class="form-floating mb-3">
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here !" id="floatingInput" name="comments" id="comments"
+                style="height: 200px; resize: none;" readonly>{{this.comments}}</textarea>
+            <label for="comments">Comments</label>
+        </div>
+    </div>
+</div>
+{{/each}}
+</form>

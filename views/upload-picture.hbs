@@ -1,0 +1,41 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Upload image</li>
+    </ol>
+</nav>
+
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+<div class="card mb-3">
+{{#each result}}
+    {{#if this.image}}
+        <h1>{{this.image}}</h1>
+        <img src="/server/controllers/upload/{{this.image}}" class="card-img-top img-thumbnail" alt="Image...">
+    {{else}}
+        <img src="/images/profile-pic.png" class="card-img-top img-thumbnail" alt="Image...">
+    {{/if}}
+    <div class="card-body">
+        <h5 class="card-title">{{this.first_name}}</h5>
+        <p class="card-text">{{this.comments}}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+{{/each}}
+</div>
+
+<form action="/uploadpicture/" method="POST" enctype="multipart/form-data">
+    <div class="input-group mt-4 justify-content-center d-flex row">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Upload image</label>
+            <input class="form-control" type="file" id="formFile" accept="image/*" name="sampleFile">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary input-group-text" type="submit">Submit</button>
+        </div>
+    </div>
+</form>
